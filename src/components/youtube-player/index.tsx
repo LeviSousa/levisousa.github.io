@@ -1,8 +1,12 @@
-export const YoutubePlayer = () => (
+type YoutubePlayerProps = {
+  videoId: string;
+}
+
+export const YoutubePlayer = ({ videoId }: YoutubePlayerProps) => (
   <iframe
     width="560"
     height="315"
-    src=""
+    src={`https://www.youtube.com/embed/${videoId}`}
     title="YouTube video player"
     frameBorder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

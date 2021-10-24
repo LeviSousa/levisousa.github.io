@@ -1,13 +1,14 @@
-export const VideogameSoundtracks = () => (
-  <>
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/FoNOwY_1ewE?controls=0"
-      title="YouTube video player"
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    />
-  </>
-);
+import { useState } from 'react';
+import { SoundtrackList, SoundtrackPlayer } from './sections';
+
+export const VideogameSoundtracks = () => {
+  const [playingVideoId, setPlayingVideoId] = useState<string>();
+
+  return (
+    <>
+      {playingVideoId
+      && <SoundtrackPlayer playingVideoId={playingVideoId} />}
+      <SoundtrackList setPlayingVideoId={setPlayingVideoId} />
+    </>
+  );
+};
